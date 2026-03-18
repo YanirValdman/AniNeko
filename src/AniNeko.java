@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 
 public class AniNeko {
 
@@ -21,14 +22,18 @@ public class AniNeko {
     static double catY = 0;
 
     public static void main(String[] args) {
+        Point startPoint = MouseInfo.getPointerInfo().getLocation();
+        catX = startPoint.x;
+        catY = startPoint.y;
+
         frame = new JFrame();
         frame.setSize(200, 200);
         frame.setUndecorated(true);
         frame.setAlwaysOnTop(true);
-        frame.setBackground(new Color(0, 0, 0, 0));
+        frame.setBackground(new Color(0, 0, 0, 0)); 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        String path = "C:\\Users\\yanir\\IdeaProjects\\neko\\catimages\\";
+        String path = "catimages" + File.separator;
 
         walkFrames = new ImageIcon[]{
                 new ImageIcon(path + "cat1.png"), new ImageIcon(path + "cat2.png"),
@@ -44,6 +49,8 @@ public class AniNeko {
 
         label = new JLabel(walkFrames[0]);
         frame.add(label);
+        
+        frame.setLocation((int) catX, (int) catY);
         frame.setVisible(true);
 
         startCATLoop();
@@ -67,13 +74,13 @@ public class AniNeko {
                 }
             } else {
                 idleCounter = 0;
+                
                 catX += (dx * 0.05);
                 catY += (dy * 0.05);
+                
                 frame.setLocation((int) catX, (int) catY);
-
                 handleAnimation(walkFrames);
             }
-
         }).start();
     }
 
