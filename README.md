@@ -27,4 +27,4 @@
 ### 🎨 Asset Note
 I'm doing this totally for fun and using AI for the cat art because I'm no Picasso. If you want to contribute hand-drawn sprites or new characters, feel free to open a Pull Request!
 
-<p align="center"><i>"Your mouse is never safe again."</i></p>
+<p align="center"><i>"Your mouse's best friend!"</i></p>
