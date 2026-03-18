@@ -65,6 +65,12 @@ public class AniNeko {
                     catY = Toolkit.getDefaultToolkit().getScreenSize().height - 120;
                     frame.setLocation((int)catX, (int)catY);
                     label.setIcon(sleepFrame);
+
+                    Timer wakeupTimer = new Timer(10000, event -> {
+                        isManualSleep = false;
+                    });
+                    wakeupTimer.setRepeats(false);
+                    wakeupTimer.start();
                 }
             }
         });
@@ -75,7 +81,6 @@ public class AniNeko {
 
     public static void startCATLoop() {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        int screenWidth = (int) screenSize.getWidth();
         int screenHeight = (int) screenSize.getHeight();
 
         new Timer(50, e -> {
